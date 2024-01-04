@@ -8,10 +8,10 @@
 
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t heightleft, heightright;
+	int heightleft, heightright;
 
 	if (tree == NULL)
-		return (0);
+		return (-1);
 
 	heightleft = binary_tree_height(tree->left);
 	heightright = binary_tree_height(tree->right);
@@ -26,7 +26,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
  *
  * Return: a or b as the maximum height
  */
-size_t max(size_t a, size_t b)
+size_t max(int a, int b)
 {
 	return ((a > b) ? a : b);
 }
