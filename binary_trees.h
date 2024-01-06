@@ -31,21 +31,41 @@ typedef struct binary_tree_s avl_t;
 /***********MAX BINARY HEAP************/
 typedef struct binary_tree_s heap_t;
 
-/************BINARY TREE PROTOTYPE*****************/
-binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
-binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
-binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);
-void binary_tree_delete(binary_tree_t *tree);
-int binary_tree_is_leaf(const binary_tree_t *node);
-int binary_tree_is_root(const binary_tree_t *node);
-void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
-void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
-void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));
-size_t binary_tree_height(const binary_tree_t *tree);
-size_t binary_tree_depth(const binary_tree_t *tree);
-size_t binary_tree_size(const binary_tree_t *tree);
-size_t binary_tree_leaves(const binary_tree_t *tree);
-size_t binary_tree_nodes(const binary_tree_t *tree);
+/************QUEUE STRUCTURE***************/
+/**
+ * struct queue - queue structure to store binary tree node
+ * @node: binary tree node
+ * @next: next node
+ */
+typedef struct queue
+{
+	binary_tree_t *node;
+	struct queue *next;
+} queue_t;
+
+queue_t *create_queue(binary_tree_t *node);
+void free_queue(queue_t *head);
+void tree_enqueue(binary_tree_t *node, queue_t **tail, void (*func)(int));
+void tree_dequeue(queue_t **head);
+
+	/************BINARY TREE PROTOTYPE*****************/
+	binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
+	binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
+	binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);
+	void binary_tree_delete(binary_tree_t *tree);
+	int binary_tree_is_leaf(const binary_tree_t *node);
+	int binary_tree_is_root(const binary_tree_t *node);
+	void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
+	void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
+	void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));
+	size_t binary_tree_height(const binary_tree_t *tree);
+	size_t binary_tree_depth(const binary_tree_t *tree);
+	size_t binary_tree_size(const binary_tree_t *tree);
+	size_t binary_tree_leaves(const binary_tree_t *tree);
+	size_t binary_tree_nodes(const binary_tree_t *tree);
+	binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+			const binary_tree_t *second);
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 
 /*********BINARY TREE HELPER************/
 size_t max(int a, int b);
