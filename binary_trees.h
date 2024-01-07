@@ -63,18 +63,20 @@ void tree_dequeue(queue_t **head);
 	size_t binary_tree_size(const binary_tree_t *tree);
 	size_t binary_tree_leaves(const binary_tree_t *tree);
 	size_t binary_tree_nodes(const binary_tree_t *tree);
+  binary_tree_t *binary_tree_uncle(binary_tree_t *node);
+  binary_tree_t *binary_tree_sibling(binary_tree_t *node);
+  int binary_tree_is_perfect(const binary_tree_t *tree);
+  int binary_tree_is_full(const binary_tree_t *tree);
+  int binary_tree_balance(const binary_tree_t *tree);
 	binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 			const binary_tree_t *second);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+int binary_tree_is_complete(const binary_tree_t *tree);
 
 /*********BINARY TREE HELPER************/
 size_t max(int a, int b);
 size_t find_tree_height(const binary_tree_t *tree);
-
-binary_tree_t *binary_tree_uncle(binary_tree_t *node);
-binary_tree_t *binary_tree_sibling(binary_tree_t *node);
-int binary_tree_is_perfect(const binary_tree_t *tree);
-int binary_tree_is_full(const binary_tree_t *tree);
-int binary_tree_balance(const binary_tree_t *tree);
+int is_complete(const binary_tree_t *root, int index, int node_count);
+int node_count(const binary_tree_t *node);
 
 #endif /*_BINARY_TREES_H_*/
