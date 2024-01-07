@@ -66,8 +66,12 @@ void tree_dequeue(queue_t **head);
 	binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 			const binary_tree_t *second);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+int binary_tree_is_complete(const binary_tree_t *tree);
 
 /*********BINARY TREE HELPER************/
 size_t max(int a, int b);
 size_t find_tree_height(const binary_tree_t *tree);
+int is_complete(const binary_tree_t *root, int index, int node_count);
+int node_count(const binary_tree_t *node);
+
 #endif /*_BINARY_TREES_H_*/
